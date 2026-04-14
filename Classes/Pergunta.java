@@ -34,16 +34,7 @@ public class Pergunta{
                 System.err.println("Erro ao abrir: " + e.getMessage());
             }
         }
-          
-        try {
-            this.Enunciado = brPergunta.readLine();
-            this.Gabarito = brGabarito.readLine();
-        } catch (IOException e) {
-            System.err.println("Erro ao ler: " + e.getMessage());
-        }
-
-
-        if (brPergunta == null && brGabarito == null) {
+         if (brPergunta == null && brGabarito == null) {
             try {
                 brPergunta.close();
                 brGabarito.close();
@@ -53,7 +44,17 @@ public class Pergunta{
             } catch (IOException e) {
                 System.err.println("Erro ao fechar: " + e.getMessage());
             }
+        } 
+
+        try {
+            this.Enunciado = brPergunta.readLine();
+            this.Gabarito = brGabarito.readLine();
+        } catch (IOException e) {
+            System.err.println("Erro ao ler: " + e.getMessage());
         }
+
+
+    
     }
 
 

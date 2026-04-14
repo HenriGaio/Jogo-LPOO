@@ -30,8 +30,22 @@ public class BattleManeger {
         // Implementar Habilidades com if usando "Resposta" e "Jogador.GetterQI" como parâmetro.
     }
     
+   
+    if(!this.Escolha.equals("Defender") && Jogador.GetterQI() < 10){
+        
+        if(Jogador instanceof Estrategista){
+            Jogador.SetterQI(Jogador.GetterQI() + 2);
+        }
+        else{
+            Jogador.SetterQI(Jogador.GetterQI() + 1);
+        }
+
+
     }
-   }
+   
+ }
+
+}
             
             
 
