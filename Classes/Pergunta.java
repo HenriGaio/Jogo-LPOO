@@ -2,12 +2,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Pergunta{
-    private String Enunciado;
-    private String Gabarito;
-    private static BufferedReader brPergunta;
-    private static BufferedReader brGabarito;
-    private boolean flagLeitor = false;
+public abstract class Pergunta{
+    protected String Enunciado;
+    protected String Gabarito;
+    protected static BufferedReader brPergunta;
+    protected static BufferedReader brGabarito;
+    protected boolean flagLeitor = false;
 
 
     public String GetterEnunciado(){
