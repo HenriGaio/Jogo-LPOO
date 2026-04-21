@@ -1,1 +1,3 @@
 Qual o a área de um quadrado de lado 2?  a)4.  b)2.  c)5.  d)6.
+
+
