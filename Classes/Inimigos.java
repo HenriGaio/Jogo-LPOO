@@ -7,11 +7,11 @@ public class Inimigos extends Personagem {
         
     }       
     
-    public String[] GetterDialogos(){
+    public String[] getDialogos(){
         return this.Dialogos;
     }
 
-    public void SetterDialogos(String[] Dialogos){
+    public void setDialogos(String[] Dialogos){
         this.Dialogos = Dialogos;
     }
 }

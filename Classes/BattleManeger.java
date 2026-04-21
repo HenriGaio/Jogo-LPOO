@@ -13,25 +13,25 @@ public class BattleManeger {
    public void Acao(Personagem Jogador, Personagem Inimigo, Pergunta Pergunta){
     
     if(this.Escolha.equals("responder")){
-        System.out.println(Pergunta.GetterEnunciado());
+        System.out.println(Pergunta.getEnunciado());
         this.Resposta = Leitor.nextLine().toLowerCase();
 
-        if(this.Resposta.charAt(0) == Pergunta.GetterGabarito().charAt(0)){
-            Inimigo.SetterVida(Inimigo.GetterVida() - Jogador.GetterDano());
+        if(this.Resposta.charAt(0) == Pergunta.getGabarito().charAt(0)){
+            Inimigo.setVida(Inimigo.getVida() - Jogador.getDano());
         }
         else{
-            Jogador.SetterVida(Jogador.GetterVida() - Inimigo.GetterDano());
+            Jogador.setVida(Jogador.getVida() - Inimigo.getDano());
         }
 
     } else if(this.Escolha.equals("defender")){
-        Jogador.SetterVida(Jogador.GetterVida() - (Inimigo.GetterDano() - Jogador.GetterDefesa()));
+        Jogador.setVida(Jogador.getVida() - (Inimigo.getDano() - Jogador.getDefesa()));
 
     } else if(this.Escolha.equals("habilidades")){
         Resposta = Leitor.nextLine().toLowerCase();
         // Implementar Habilidades com if usando "Resposta" e "Jogador.GetterQI" como parâmetro.
-        if(Resposta.equals("eliminar") && Jogador.GetterQI() >= 2 && Pergunta instanceof PerguntaMultiplaEscolha){
-            Jogador.GetterHabilidades().Eliminar((PerguntaMultiplaEscolha) Pergunta);
-            Jogador.SetterQI(Jogador.GetterQI() - 2);
+        if(Resposta.equals("eliminar") && Jogador.getQI() >= 2 && Pergunta instanceof PerguntaMultiplaEscolha){
+            Jogador.getHabilidades().Eliminar((PerguntaMultiplaEscolha) Pergunta);
+            Jogador.setQI(Jogador.getQI() - 2);
         }
         else{
             System.out.println("Habilidade não compatível com a pergunta ou QI insuficiente.");
@@ -39,13 +39,13 @@ public class BattleManeger {
     }
     
    
-    if(!this.Escolha.equals("defender") && Jogador.GetterQI() < 10){
+    if(!this.Escolha.equals("defender") && Jogador.getQI() < 10){
         
         if(Jogador instanceof Estrategista){
-            Jogador.SetterQI(Jogador.GetterQI() + 2);
+            Jogador.setQI(Jogador.getQI() + 2);
         }
         else{
-            Jogador.SetterQI(Jogador.GetterQI() + 1);
+            Jogador.setQI(Jogador.getQI() + 1);
         }
 
 

@@ -1,22 +1,22 @@
 public class Habilidade{
     
     public void Eliminar(PerguntaMultiplaEscolha pergunta){
-        int ParametroA = pergunta.GetterEnunciado().indexOf(".", pergunta.GetterEnunciado().indexOf("a)"));
-        int ParametroB = pergunta.GetterEnunciado().indexOf(".", pergunta.GetterEnunciado().indexOf("b)"));
+        int ParametroA = pergunta.getEnunciado().indexOf(".", pergunta.getEnunciado().indexOf("a)"));
+        int ParametroB = pergunta.getEnunciado().indexOf(".", pergunta.getEnunciado().indexOf("b)"));
         
         
 
-        String AlternativaA = pergunta.GetterEnunciado().substring(pergunta.GetterEnunciado().indexOf("a)"), ParametroA);
-        String AlternativaB = pergunta.GetterEnunciado().substring(pergunta.GetterEnunciado().indexOf("b)"), ParametroB);
+        String AlternativaA = pergunta.getEnunciado().substring(pergunta.getEnunciado().indexOf("a)"), ParametroA);
+        String AlternativaB = pergunta.getEnunciado().substring(pergunta.getEnunciado().indexOf("b)"), ParametroB);
         
         
 
         
-        if(!pergunta.GetterGabarito().equals(AlternativaA)){
-            pergunta.SetterEnunciado(pergunta.GetterEnunciado().replace("\n" + AlternativaA + ".", ""));
+        if(!pergunta.getGabarito().equals(AlternativaA)){
+            pergunta.setEnunciado(pergunta.getEnunciado().replace("\n" + AlternativaA + ".", ""));
         }
-        else if(!pergunta.GetterGabarito().equals(AlternativaB)){
-            pergunta.SetterEnunciado(pergunta.GetterEnunciado().replace("\n" + AlternativaB + ".", ""));
+        else if(!pergunta.getGabarito().equals(AlternativaB)){
+            pergunta.setEnunciado(pergunta.getEnunciado().replace("\n" + AlternativaB + ".", ""));
         }
         
 

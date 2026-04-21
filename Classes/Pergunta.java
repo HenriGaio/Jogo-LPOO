@@ -10,16 +10,16 @@ public abstract class Pergunta{
     protected boolean flagLeitor = false;
 
 
-    public String GetterEnunciado(){
+    public String getEnunciado(){
         return this.Enunciado;
     }
-    public void SetterEnunciado(String Enunciado){
+    public void setEnunciado(String Enunciado){
         this.Enunciado = Enunciado;
     }
-    public String GetterGabarito(){
+    public String getGabarito(){
         return this.Gabarito;
     }
-    public void SetterGabarito(String Gabarito){
+    public void setGabarito(String Gabarito){
         this.Gabarito = Gabarito;
     }
 

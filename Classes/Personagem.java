@@ -15,30 +15,30 @@ public abstract class Personagem {
     }
     
     
-    public int GetterVida(){
+    public int getVida(){
         return this.Vida;
 
     }
-    public void SetterVida(int Vida){
+    public void setVida(int Vida){
         this.Vida = Vida;
     }
-    public void SetterQI(int QI){
+    public void setQI(int QI){
         this.QI = QI;
     }
 
-    public int GetterDano(){
+    public int getDano(){
         return this.Dano;
     }
-    public int GetterQI(){
+    public int getQI(){
         return this.QI;
     }
-    public Habilidade GetterHabilidades(){
+    public Habilidade getHabilidades(){
         return this.Habilidades;
     }
-    public int GetterDefesa(){
+    public int getDefesa(){
         return this.Defesa;
     }
-    public String GetterNome(){
+    public String getNome(){
         return this.Nome;
     }
 }
