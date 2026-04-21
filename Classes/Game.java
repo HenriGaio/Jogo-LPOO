@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Game 
 {
 	public static void main(String[] args) 
@@ -39,7 +41,7 @@ public class Game
        	int defesaInimigo1 = 10;
        	String nomeInimigo1 = "Bug Crônico";
        	
-       	Personagem inimigo1 = new inimigos(vidaInimigo1 , danoInimigo1, defesaInimigo1, nomeInimigo1);
+       	Personagem inimigo1 = new Inimigos(vidaInimigo1 , danoInimigo1, defesaInimigo1, nomeInimigo1);
        	
        	System.out.println("Uma batalha foi iniciada ! ");
        	System.out.println("Nome do adversário: " + inimigo1.getNome());
@@ -49,16 +51,21 @@ public class Game
        	while (player.estaVivo() && inimigo1.estaVivo()) 
        	{
        	
-       	perguntaMEscolha.atualizarPergunta();
+       	perguntaMEscolha.atualizarPergunta("Pergunta.txt","Gabarito.txt");
+       	System.out.println("\n--- Rodada " + numeroDaRodada + " ---");
+       	System.out.println(player.getNome() + " HP: " + player.getVida() + " | " + inimigo1.getNome() + " HP: " + inimigo1.getVida());
+        System.out.println("-----------------------------------------");
+       	
         System.out.println("O que você deseja fazer ?");
         System.out.println("responder");
         System.out.println("defender");
         System.out.println("habilidades");
         System.out.print("Opção: ");
-        String escolha = scanner.nextLine();
+        String opcao = scanner.nextLine();
+        System.out.println("");
         
-        Rodada.setEscolha(escolha); 
-       	Rodada.Acao(player, inimigo1, perguntaMEscolha);
+        rodada.setEscolha(opcao); 
+       	rodada.Acao(player, inimigo1, perguntaMEscolha);
        	
        	numeroDaRodada++;
        	}
