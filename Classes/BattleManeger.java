@@ -5,7 +5,7 @@ public class BattleManeger {
     private String Resposta;
     private Scanner Leitor = new Scanner(System.in);
     
-    public void SetterEscolha(String Escolha){
+    public void setEscolha(String Escolha){
         this.Escolha = Escolha.toLowerCase();
     }
 
@@ -18,13 +18,16 @@ public class BattleManeger {
 
         if(this.Resposta.charAt(0) == Pergunta.getGabarito().charAt(0)){
             Inimigo.setVida(Inimigo.getVida() - Jogador.getDano());
+            System.out.printf("Você acertou e causou %d de dano", Jogador.getDano());
         }
         else{
             Jogador.setVida(Jogador.getVida() - Inimigo.getDano());
+            System.out.printf("Você errou e recebeu %d de dano", Inimigo.getDano());
         }
 
     } else if(this.Escolha.equals("defender")){
         Jogador.setVida(Jogador.getVida() - (Inimigo.getDano() - Jogador.getDefesa()));
+        System.out.printf("Você errou e recebeu %d de dano", Inimigo.getDano() - Jogador.getDefesa());
 
     } else if(this.Escolha.equals("habilidades")){
         Resposta = Leitor.nextLine().toLowerCase();

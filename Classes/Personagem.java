@@ -41,4 +41,8 @@ public abstract class Personagem {
     public String getNome(){
         return this.Nome;
     }
+    
+    public boolean estaVivo() {
+        return this.vida > 0;
+    }
 }

@@ -23,7 +23,7 @@ public abstract class Pergunta{
         this.Gabarito = Gabarito;
     }
 
-    public void AtualizarPergunta(String CaminhoPergunta, String CaminhoGabarito){
+    public void atualizarPergunta(String CaminhoPergunta, String CaminhoGabarito){
         
         if (flagLeitor == false) {
             try {

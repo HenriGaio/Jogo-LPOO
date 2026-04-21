@@ -9,7 +9,7 @@ public class PerguntaMultiplaEscolha extends Pergunta {
 
 
     @Override
-    public void AtualizarPergunta(String caminhoPergunta, String caminhoGabarito) {
+    public void atualizarPergunta(String caminhoPergunta, String caminhoGabarito) {
         
         super.AtualizarPergunta(caminhoPergunta, caminhoGabarito);
         if (this.getEnunciado() != null) {
