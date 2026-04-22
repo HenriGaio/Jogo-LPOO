@@ -1,3 +1,51 @@
-Qual o a área de um quadrado de lado 2?  a)4.  b)2.  c)5.  d)6.
-
+Qual é a função utilizada para imprimir texto no console? a) output() b) print() c) echo() d) display() e) write()
+Como se inicia um comentário de uma única linha em Python? a) // b) /* c) # d) -- e) %%
+Qual é a extensão padrão de arquivos Python? a) .pt b) .pyt c) .py d) .pyn e) .exe
+Qual destas é uma maneira válida de declarar uma variável? a) 1_variavel = 10 b) variavel-um = 10 c) variavel_um = 10 d) variavel um = 10 e) @variavel = 10
+Qual o tipo de dado da variável x = 5.0? a) int b) str c) float d) bool e) list
+Qual operador é usado para calcular a potência de um número (ex: 2 elevado a 3)? a) ^ b) ** c) exp() d) pow e) &&
+Qual será o resultado de 3 + 2 * 5? a) 25 b) 10 c) 13 d) 15 e) 30
+Como você converte o número 7 para uma string? a) str(7) b) String(7) c) "7".toString() d) char(7) e) int_to_str(7)
+Qual o valor booleano de 10 > 9? a) False b) None c) True d) Error e) 1
+O que o operador % faz? a) Calcula a porcentagem b) Divide dois números c) Retorna o resto da divisão d) Arredonda um número e) Multiplica por 100
+Qual comando é usado para receber uma entrada do usuário? a) read() b) get() c) input() d) scan() e) accept()
+Qual é a saída de print("Olá" + "Mundo")? a) Olá Mundo b) Olá+Mundo c) OláMundo d) Error e) ("Olá", "Mundo")
+Como você verifica o tamanho de uma lista lista = [1, 2, 3]? a) lista.size() b) count(lista) c) length(lista) d) len(lista) e) sizeOf(lista)
+Qual destes métodos remove o último item de uma lista? a) remove() b) delete() c) pop() d) discard() e) clear()
+Como se escreve um "se" em Python? a) if x > y: b) if x > y then: c) if (x > y) { d) case x > y: e) check x > y
+Qual a sintaxe correta para um laço "para" que repete 5 vezes? a) for i in range(5): b) for i = 1 to 5: c) repeat(5): d) for(i=0; i<5; i++) e) while i < 5:
+O que o método .upper() faz com uma string? a) Remove espaços b) Deixa tudo em minúsculo c) Deixa tudo em maiúsculo d) Inverte a string e) Conta as letras
+Qual estrutura de dados é definida por chaves {} e pares de chave-valor? a) Lista b) Tupla c) Conjunto (Set) d) Dicionário e) Array
+Qual a diferença principal entre uma Lista e uma Tupla? a) Listas são mais rápidas b) Tuplas são imutáveis c) Listas só aceitam números d) Não há diferença e) Tuplas usam colchetes
+Como você adiciona um elemento ao final de uma lista? a) add() b) insert() c) push() d) append() e) include()
+O que acontece se você tentar acessar lista[5] em uma lista de 3 elementos? a) Retorna None b) Retorna 0 c) Erro de IndexError d) Cria o índice automaticamente e) Retorna o último elemento
+Qual palavra reservada define uma função? a) function b) func c) define d) def e) method
+Como você importa um módulo chamado math? a) include math b) import math c) using math d) #import <math> e) require math
+Qual o resultado de 10 // 3? a) 3.333 b) 3 c) 1 d) 4 e) 0
+Qual destas é uma palavra reservada (keyword) em Python? a) integer b) main c) yield d) string e) array
+Como você remove todos os espaços em branco do início e fim de uma string? a) .clean() b) .trim() c) .strip() d) .slice() e) .replace(" ", "")
+O que faz o comando break dentro de um loop? a) Pula para a próxima iteração b) Encerra o loop prematuramente c) Reinicia o computador d) Pausa a execução por 1 segundo e) Sai da função
+Qual o resultado de bool(0)? a) True b) False c) None d) 0 e) Error
+Como você verifica se "a" está na lista L? a) L.contains("a") b) if "a" in L: c) check("a", L) d) if L.has("a"): e) isin("a", L)
+Qual função gera uma sequência de números? a) sequence() b) series() c) range() d) list() e) generate()
+O que é um "Slicing" em uma string s = "Python" para obter "Py"? a) s[0:2] b) s[1:2] c) s[:1] d) s[0,2] e) s.cut(2)
+Como você cria um set (conjunto) vazio? a) s = {} b) s = set() c) s = [] d) s = () e) s = empty()
+O que o operador is verifica? a) Se os valores são iguais b) Se as variáveis apontam para o mesmo objeto na memória c) Se o tipo é o mesmo d) Se a variável existe e) Se é nulo
+Como se trata uma exceção em Python? a) try/catch b) try/except c) handle/error d) if error: e) throw/catch
+O que faz o método __init__ em uma classe? a) Deleta o objeto b) É o construtor, inicializa o objeto c) Define uma variável global d) Importa a classe e) Finaliza o programa
+Qual a saída de [x * 2 for x in range(3)]? a) [0, 2, 4] b) [2, 4, 6] c) [0, 1, 2] d) [1, 2, 3] e) Error
+Como você herdaria a classe Pai na classe Filho? a) class Filho(Pai): b) class Filho extends Pai: c) class Filho : Pai d) class Filho implements Pai e) class Filho < Pai
+O que *args faz em uma definição de função? a) Multiplica os argumentos b) Permite um número arbitrário de argumentos posicionais c) Define argumentos obrigatórios d) Define argumentos de palavra-chave e) É um ponteiro
+O que faz a função zip()? a) Compacta um arquivo b) Combina vários iteráveis em tuplas c) Extrai um arquivo .zip d) Acelera a execução do código e) Inverte uma lista
+Qual a saída de type(lambda x: x)? a) <class 'function'> b) <class 'lambda'> c) <class 'type'> d) <class 'str'> e) <class 'none'>
+O que é um Decorador (Decorator) em Python? a) Uma função que modifica outra função b) Um tema para o VS Code c) Uma variável colorida d) Uma classe de interface e) Um comentário bonito
+O que o método getattr() faz? a) Define um atributo b) Deleta um atributo c) Retorna o valor de um atributo de um objeto d) Verifica o tipo do objeto e) Lista os métodos
+O que é o GIL no CPython? a) Global Interpreter Lock b) General Input List c) Graphical Interface Library d) Global Index Location e) Google Integrated Language
+Qual a diferença entre __str__ e __repr__? a) Não há diferença b) str é para usuários, repr é para desenvolvedores (depuração) c) str é privado, repr é público d) str só aceita letras, repr só números e) repr é mais rápido que str
+O que faz o módulo itertools? a) Gerencia entrada e saída b) Fornece funções para criar iteradores complexos c) Edita textos d) Cria interfaces gráficas e) Faz requisições HTTP
+Como você abre um arquivo para escrita garantindo que ele seja fechado automaticamente? a) open('file.txt', 'w') b) with open('file.txt', 'w') as f: c) file.write('w') d) f = write('file.txt') e) try: open('w')
+O que são "Dunder Methods"? a) Métodos perigosos b) Métodos com dois sublinhados (Double Under), como __add__ c) Métodos de exclusão d) Funções de busca e) Variáveis de ambiente
+Qual a complexidade média de busca em um dicionário? a) O(1) b) O(n) c) O(log n) d) O(n^2) e) O(infinito)
+O que faz a função super()? a) Aumenta a velocidade do código b) Acessa métodos da classe pai c) Define uma variável global d) Finaliza a execução do script e) Cria uma superclasse
+O que é um Gerador (Generator) em Python? a) Um script que cria outros scripts b) Uma função que usa yield e retorna um iterador c) Um carregador de bateria d) Uma classe de números aleatórios e) Um compilador de Python
 
