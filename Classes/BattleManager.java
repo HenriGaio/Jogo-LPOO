@@ -30,6 +30,7 @@ public class BattleManager {
         System.out.printf("Você defendey e recebeu %d de dano ", Inimigo.getDano() - Jogador.getDefesa());
 
     } else if(this.Escolha.equals("habilidades")){
+        System.out.println("Escolha sua habilidade");
         Resposta = Leitor.nextLine().toLowerCase();
         // Implementar Habilidades com if usando "Resposta" e "Jogador.GetterQI" como parâmetro.
         if(Resposta.equals("eliminar") && Jogador.getQI() >= 2 && Pergunta instanceof PerguntaMultiplaEscolha){
