@@ -1,2 +1,50 @@
-c)4.
-
+b) print()
+c) #
+c) .py
+c) variavel_um = 10
+c) float
+b) **
+c) 13
+a) str(7)
+c) True
+c) Retorna o resto da divisão
+c) input()
+c) OláMundo
+d) len(lista)
+c) pop()
+a) if x > y:
+a) for i in range(5):
+c) Deixa tudo em maiúsculo
+d) Dicionário
+b) Tuplas são imutáveis
+d) append()
+c) Erro de IndexError
+d) def
+b) import math
+b) 3
+c) yield
+c) .strip()
+b) Encerra o loop prematuramente
+b) False
+b) if "a" in L:
+c) range()
+a) s[0:2]
+b) s = set()
+b) Se as variáveis apontam para o mesmo objeto na memória
+b) try/except
+b) É o construtor, inicializa o objeto
+a) [0, 2, 4]
+a) class Filho(Pai):
+b) Permite um número arbitrário de argumentos posicionais
+b) Combina vários iteráveis em tuplas
+a) <class 'function'>
+a) Uma função que modifica outra função
+c) Retorna o valor de um atributo de um objeto
+a) Global Interpreter Lock
+b) str é para usuários, repr é para desenvolvedores (depuração)
+b) Fornece funções para criar iteradores complexos
+b) with open('file.txt', 'w') as f:
+b) Métodos com dois sublinhados (Double Under), como add
+a) O(1)
+b) Acessa métodos da classe pai
+b) Uma função que usa yield e retorna um iterador
