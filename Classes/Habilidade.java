@@ -1,8 +1,8 @@
 public class Habilidade{
     
     public void Eliminar(PerguntaMultiplaEscolha pergunta){
-        int ParametroA = pergunta.getEnunciado().indexOf(".", pergunta.getEnunciado().indexOf("a)"));
-        int ParametroB = pergunta.getEnunciado().indexOf(".", pergunta.getEnunciado().indexOf("b)"));
+        int ParametroA = pergunta.getEnunciado().indexOf(" ", pergunta.getEnunciado().indexOf("a)"));
+        int ParametroB = pergunta.getEnunciado().indexOf(" ", pergunta.getEnunciado().indexOf("b)"));
         
         
 
@@ -13,10 +13,10 @@ public class Habilidade{
 
         
         if(!pergunta.getGabarito().equals(AlternativaA)){
-            pergunta.setEnunciado(pergunta.getEnunciado().replace("\n" + AlternativaA + ".", ""));
+            pergunta.setEnunciado(pergunta.getEnunciado().replace("\n" + AlternativaA + " ", ""));
         }
         else if(!pergunta.getGabarito().equals(AlternativaB)){
-            pergunta.setEnunciado(pergunta.getEnunciado().replace("\n" + AlternativaB + ".", ""));
+            pergunta.setEnunciado(pergunta.getEnunciado().replace("\n" + AlternativaB + " ", ""));
         }
         
 

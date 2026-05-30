@@ -13,7 +13,7 @@ public class BattleManager {
    public void Acao(Personagem Jogador, Personagem Inimigo, Pergunta Pergunta){
     
     if(this.Escolha.equals("responder")){
-        System.out.println(Pergunta.getEnunciado());
+        System.out.print("Digite sua resposta (Letra): ");
         this.Resposta = Leitor.nextLine().toLowerCase();
 
         if(this.Resposta.charAt(0) == Pergunta.getGabarito().charAt(0)){
@@ -27,13 +27,13 @@ public class BattleManager {
 
     } else if(this.Escolha.equals("defender")){
         Jogador.setVida(Jogador.getVida() - (Inimigo.getDano() - Jogador.getDefesa()));
-        System.out.printf("Você defendey e recebeu %d de dano ", Inimigo.getDano() - Jogador.getDefesa());
+        System.out.printf("Você defendeu e recebeu %d de dano ", Inimigo.getDano() - Jogador.getDefesa());
 
     } else if(this.Escolha.equals("habilidades")){
-        System.out.println("Escolha sua habilidade");
+        System.out.println("Escolha sua habilidade:" + "\nEliminar (Custo: 2 QI) - Elimina uma alternativa errada (apenas para perguntas de múltipla escolha)");
         Resposta = Leitor.nextLine().toLowerCase();
         // Implementar Habilidades com if usando "Resposta" e "Jogador.GetterQI" como parâmetro.
-        if(Resposta.equals("eliminar") && Jogador.getQI() >= 2 && Pergunta instanceof PerguntaMultiplaEscolha){
+        if(Resposta.toLowerCase().equals("eliminar") && Jogador.getQI() >= 2 && Pergunta instanceof PerguntaMultiplaEscolha){
             Jogador.getHabilidades().Eliminar((PerguntaMultiplaEscolha) Pergunta);
             Jogador.setQI(Jogador.getQI() - 2);
         }

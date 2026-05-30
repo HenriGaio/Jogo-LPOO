@@ -5,11 +5,11 @@ public class Game
 	public static void main(String[] args) 
 	{
 		BattleManager rodada = new BattleManager();
-		Pergunta perguntaMEscolha = new PerguntaMultiplaEscolha();
-		Pergunta perguntaVOuF = new PerguntaCertoOuErrado();
+		QuestionManager QuestionManager = new QuestionManager();
 		
 		Scanner scanner = new Scanner(System.in);
-		
+		String opcao = "";
+
 		// Seleção de Personagem
         System.out.println("Escolha sua classe: ");
         System.out.println("1 - Combatente (Foco em Dano)");
@@ -36,7 +36,7 @@ public class Game
        	
        	//iniciar batalha com o inimigo 1
        	
-       	int vidaInimigo1 = 60;
+       	int vidaInimigo1 = 110;
        	int danoInimigo1 = 15;
        	int defesaInimigo1 = 10;
        	String nomeInimigo1 = "Bug Crônico";
@@ -50,25 +50,35 @@ public class Game
        	int numeroDaRodada = 1;
        	while (player.estaVivo() && inimigo1.estaVivo()) 
        	{
-       	
-       	perguntaMEscolha.atualizarPergunta("Pergunta.txt","Gabarito.txt");
-       	System.out.println("\n--- Rodada " + numeroDaRodada + " ---");
-       	System.out.println(player.getNome() + " HP: " + player.getVida() + " | " + inimigo1.getNome() + " HP: " + inimigo1.getVida());
+       	if (!opcao.toLowerCase().equals("habilidades")) {	
+       		QuestionManager.AtualizarPergunta("Pergunta.txt","Gabarito.txt");
+		}
+	   	
+		System.out.println("\n--- Rodada " + numeroDaRodada + " ---");
+       	System.out.println(player.getNome() + " HP: " + player.getVida() + " QI: " + player.getQI() + " | " + inimigo1.getNome() + " HP: " + inimigo1.getVida());
         System.out.println("-----------------------------------------");
-       	
-        System.out.println("O que você deseja fazer ?");
+       	System.out.println("\nPergunta: " + QuestionManager.getPergunta().getEnunciado());
+
+        System.out.println("\nO que você deseja fazer ?");
         System.out.println("responder");
         System.out.println("defender");
         System.out.println("habilidades");
         System.out.print("Opção: ");
-        String opcao = scanner.nextLine();
+        opcao = scanner.nextLine();
         System.out.println("");
         
         rodada.setEscolha(opcao); 
-       	rodada.Acao(player, inimigo1, perguntaMEscolha);
+       	rodada.Acao(player, inimigo1, QuestionManager.getPergunta());
        	
        	numeroDaRodada++;
-       	}
+       	
+		if (!player.estaVivo()) {
+			System.out.println("\nVocê foi derrotado! Fim de jogo.");
+		} else if (!inimigo1.estaVivo()) {
+			System.out.println("\nParabéns! Você derrotou o " + inimigo1.getNome() + "!");
+		}
+	
+	}
        	
        	
        	
