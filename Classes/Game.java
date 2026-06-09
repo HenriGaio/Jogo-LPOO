@@ -51,7 +51,7 @@ public class Game
        	while (player.estaVivo() && inimigo1.estaVivo()) 
        	{
        	if (!opcao.toLowerCase().equals("habilidades")) {	
-       		QuestionManager.AtualizarPergunta("Pergunta.txt","Gabarito.txt");
+       		QuestionManager.AtualizarPergunta("Pergunta.txt","Gabarito.txt", inimigo1);
 		}
 	   	
 		System.out.println("\n--- Rodada " + numeroDaRodada + " ---");

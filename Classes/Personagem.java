@@ -5,7 +5,7 @@ public abstract class Personagem {
     private int Defesa;
     private int QI;
     private Habilidade Habilidades = new Habilidade();
-    
+
     public Personagem(int Vida, int Dano, int Defesa, int QI, String Nome){
         this.Vida = Vida;
         this.Dano = Dano;

@@ -17,7 +17,7 @@ public class QuestionManager {
     }
     
     
-    public void AtualizarPergunta(String caminhoPergunta, String caminhoGabarito) {
+    public void AtualizarPergunta(String caminhoPergunta, String caminhoGabarito, Personagem inimigo) {
         
         if (ponteiro == 0) {
             
@@ -61,7 +61,7 @@ public class QuestionManager {
                 
             } 
         
-        if (ponteiro == linhas-1){
+        if (ponteiro == linhas-1 || !inimigo.estaVivo()){
             ponteiro = 0;
         }
         
