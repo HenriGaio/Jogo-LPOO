@@ -1,0 +1,15 @@
+M|Como você adiciona um elemento ao final de uma lista?  a) add()  b) insert()  c) push()  d) append()  e) include()
+M|Qual a diferença principal entre uma Lista e uma Tupla?  a) Listas são rápidas  b) Tuplas são imutáveis  c) Listas só aceitam números  d) Nenhuma  e) Tuplas usam chaves
+M|Qual método remove e retorna o último item de uma lista?  a) remove()  b) delete()  c) pop()  d) discard()  e) clear()
+M|O que faz o comando break dentro de um loop?  a) Pula a iteração  b) Encerra o loop prematuramente  c) Pausa a execução  d) Sai da função  e) Reinicia
+M|Qual estrutura de dados é definida por chaves {} e pares de chave-valor?  a) Lista  b) Tupla  c) Conjunto (Set)  d) Dicionário  e) Array
+C|Um dicionário pode ter chaves duplicadas com o mesmo nome.  a) Certo  b) Errado
+C|O laço "for i in range(5):" vai iterar de 0 até 4.  a) Certo  b) Errado
+C|Em Python, os blocos try e except são usados para tratar erros e exceções.  a) Certo  b) Errado
+C|O operador "is" verifica se os valores de duas variáveis são iguais, ignorando a memória.  a) Certo  b) Errado
+C|Para criar um conjunto (set) vazio, você deve usar "s = {}".  a) Certo  b) Errado
+F|Para remover todos os espaços em branco do início e do fim de uma string, usamos o método ___.
+F|A estrutura usada para garantir que um arquivo seja fechado automaticamente após o uso é o bloco ___.
+F|Para converter uma string em um número inteiro, usamos a função ___.
+F|O método de string que converte todas as letras para maiúsculas é o ___.
+F|A palavra-chave usada para retornar um valor de dentro de uma função é ___.

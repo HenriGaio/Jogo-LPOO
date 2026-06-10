@@ -1,0 +1,15 @@
+a
+b
+b
+a
+b
+a
+b
+a
+b
+b
+*args
+zip
+funcional
+dunder
+yield

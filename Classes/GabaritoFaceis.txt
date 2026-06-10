@@ -1,0 +1,15 @@
+b
+c
+c
+b
+c
+b
+a
+a
+b
+a
+input
+def
+%
+len
+bool

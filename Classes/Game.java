@@ -16,8 +16,15 @@ public class Game
         System.out.println("2 - Estrategista (Foco em QI)");
         System.out.println("3 - Tank (Foco em Resistência)");
         System.out.print("Opção: ");
-        int escolha = scanner.nextInt();
-        scanner.nextLine(); // Consumir quebra de linha
+        
+        String inputEscolha = scanner.nextLine().trim();
+        // Loop que prende o usuário até ele digitar 1, 2 ou 3
+        while (!inputEscolha.equals("1") && !inputEscolha.equals("2") && !inputEscolha.equals("3")) {
+            System.out.print("Opção inválida! Por favor, digite 1, 2 ou 3: ");
+            inputEscolha = scanner.nextLine().trim();
+        }
+        
+        int escolha = Integer.parseInt(inputEscolha);
 
         Personagem player;
         if (escolha == 1) 
@@ -28,59 +35,90 @@ public class Game
         {
             player = new Estrategista();
         }
-        
-       	else 
-       	{	
-       		player = new Tank();
-       	}
+        else 
+        {   
+            player = new Tank();
+        }
        	
-       	//iniciar batalha com o inimigo 1
+       	// Listas com os nomes dos arquivos separados por dificuldade
+        String[] arquivosPerguntas = {"PerguntasFaceis.txt", "PerguntasMedias.txt", "PerguntasDificeis.txt"};
+        String[] arquivosGabaritos = {"GabaritoFaceis.txt", "GabaritoMedias.txt", "GabaritoDificeis.txt"};
        	
-       	int vidaInimigo1 = 110;
-       	int danoInimigo1 = 15;
-       	int defesaInimigo1 = 10;
-       	String nomeInimigo1 = "Bug Crônico";
+       	// Loop de Fases (Níveis)
+       	for (int nivel = 0; nivel < 3; nivel++) {
        	
-       	Personagem inimigo1 = new Inimigos(vidaInimigo1 , danoInimigo1, defesaInimigo1, nomeInimigo1);
-       	
-       	System.out.println("Uma batalha foi iniciada ! ");
-       	System.out.println("Nome do adversário: " + inimigo1.getNome());
-       	
-       	
-       	int numeroDaRodada = 1;
-       	while (player.estaVivo() && inimigo1.estaVivo()) 
-       	{
-       	if (!opcao.toLowerCase().equals("habilidades")) {	
-       		QuestionManager.AtualizarPergunta("Pergunta.txt","Gabarito.txt", inimigo1);
+       		// Escalonamento do inimigo: Mais vida e menos dano a cada nível
+       			
+       		int vidaInimigo = 110 + (nivel * 40); // Nv 1: 110 | Nv 2: 150 | Nv 3: 190
+       		int danoInimigo = 15  - (nivel * 3);   // Nv 1: 15 | Nv 2: 12 | Nv 3: 9
+       		int defesaInimigo = 10;
+       		String nomeInimigo = "Bug Crônico Nv " + (nivel + 1);
+       		
+       		Personagem inimigo = new Inimigos(vidaInimigo, danoInimigo, defesaInimigo, nomeInimigo);
+       		
+       		System.out.println("\n=========================================");
+        	System.out.println("UMA BATALHA FOI INICIADA - NÍVEL " + (nivel + 1) + "!");
+        	System.out.println("Nome do adversário: " + inimigo.getNome());
+        	System.out.println("=========================================");
+       		
+       		// Reseta o gerenciador de perguntas para ler o novo arquivo do nível atual
+       		
+       		QuestionManager.reset();
+       		
+       		int numeroDaRodada = 1;
+       		
+       		// Loop de Batalha
+       		while (player.estaVivo() && inimigo.estaVivo()) 
+       		{
+       			if (!opcao.toLowerCase().equals("habilidades")) {	
+       				QuestionManager.AtualizarPergunta(arquivosPerguntas[nivel], arquivosGabaritos[nivel], inimigo);
+				}
+	   			
+				System.out.println("\n--- Rodada " + numeroDaRodada + " ---");
+       			System.out.println(player.getNome() + " HP: " + player.getVida() + " QI: " + player.getQI() + " | " + inimigo.getNome() + " HP: " + inimigo.getVida());
+        		System.out.println("-----------------------------------------");
+       			System.out.println("\nPergunta: " + QuestionManager.getPergunta().getEnunciado());
+		
+        		System.out.println("\nO que você deseja fazer ?");
+        		System.out.println("responder");
+        		System.out.println("defender");
+        		System.out.println("habilidades");
+        		System.out.print("Opção: ");
+        		opcao = scanner.nextLine();
+        		
+        		// Validação da Ação do Jogador
+                while (!opcao.equals("responder") && !opcao.equals("defender") && !opcao.equals("habilidades")) {
+                    System.out.print("Ação inválida! Digite 'responder', 'defender' ou 'habilidades': ");
+                    opcao = scanner.nextLine().toLowerCase().trim();
+                }
+        		System.out.println("");
+        		
+        		rodada.setEscolha(opcao); 
+       			rodada.Acao(player, inimigo, QuestionManager.getPergunta());
+       			
+       			numeroDaRodada++;
+       		
+       		}
+       		// Verificação de fim de nível ou fim de jogo
+			if (!player.estaVivo()) 
+			{
+				System.out.println("\nVocê foi derrotado! Fim de jogo.");
+				break; // Sai do loop de níveis, pois o jogador morreu
+			} 
+			else if (!inimigo.estaVivo()) 
+			{
+				System.out.println("\nParabéns! Você derrotou o " + inimigo.getNome() + "!");
+            	if (nivel < 2) 
+            	{
+            		System.out.println("Prepare-se para o próximo nível...");
+				}
+				else 
+				{
+        			System.out.println("Você concluiu todos os desafios! VOCÊ VENCEU O JOGO!");
+        		}
+			}
 		}
-	   	
-		System.out.println("\n--- Rodada " + numeroDaRodada + " ---");
-       	System.out.println(player.getNome() + " HP: " + player.getVida() + " QI: " + player.getQI() + " | " + inimigo1.getNome() + " HP: " + inimigo1.getVida());
-        System.out.println("-----------------------------------------");
-       	System.out.println("\nPergunta: " + QuestionManager.getPergunta().getEnunciado());
-
-        System.out.println("\nO que você deseja fazer ?");
-        System.out.println("responder");
-        System.out.println("defender");
-        System.out.println("habilidades");
-        System.out.print("Opção: ");
-        opcao = scanner.nextLine();
-        System.out.println("");
-        
-        rodada.setEscolha(opcao); 
-       	rodada.Acao(player, inimigo1, QuestionManager.getPergunta());
-       	
-       	numeroDaRodada++;
-       	
-		if (!player.estaVivo()) {
-			System.out.println("\nVocê foi derrotado! Fim de jogo.");
-		} else if (!inimigo1.estaVivo()) {
-			System.out.println("\nParabéns! Você derrotou o " + inimigo1.getNome() + "!");
-		}
-	
-	}
-       	
-       	
+       	scanner.close();
        	
        	
        	

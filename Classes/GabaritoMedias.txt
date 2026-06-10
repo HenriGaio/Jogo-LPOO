@@ -1,0 +1,15 @@
+d
+b
+c
+b
+d
+b
+a
+a
+b
+b
+strip
+with
+int
+upper
+return

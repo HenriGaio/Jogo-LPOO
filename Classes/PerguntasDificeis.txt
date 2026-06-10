@@ -1,0 +1,15 @@
+M|O que é o GIL no CPython?  a) Global Interpreter Lock  b) General Input List  c) Graphical Interface Library  d) Global Index Location  e) Google Integrated Language
+M|O que faz a função super()?  a) Acelera o código  b) Acessa métodos da classe pai  c) Define variável global  d) Cria superclasse  e) Finaliza script
+M|O que é um Gerador (Generator) em Python?  a) Um script de automação  b) Função que usa yield e retorna um iterador  c) Classe abstrata  d) Módulo de aleatoriedade  e) Compilador nativo
+M|O que é um Decorador (Decorator)?  a) Uma função que modifica outra função  b) Variável de ambiente do sistema  c) Classe de interface gráfica  d) Estilizador de texto  e) Padrão de projeto Singleton
+M|O que faz o método __init__ em uma classe Python?  a) Deleta o objeto  b) É o construtor que inicializa o objeto  c) Importa pacotes  d) Instancia a classe pai indiretamente  e) Limpa o garbage collector
+C|O módulo itertools fornece funções avançadas para criar iteradores complexos e eficientes.  a) Certo  b) Errado
+C|A complexidade média de busca de uma chave em um dicionário Python moderno é O(n).  a) Certo  b) Errado
+C|Expressões lambda em Python são restritas a uma única linha de expressão e não podem conter blocos complexos de comandos.  a) Certo  b) Errado
+C|O método mágico __str__ é estritamente focado em desenvolvedores (depuração), enquanto __repr__ é para o usuário final.  a) Certo  b) Errado
+C|A linguagem Python não suporta herança múltipla de classes nativamente.  a) Certo  b) Errado
+F|Para permitir um número arbitrário de argumentos posicionais dentro da definição de uma função, usamos ___.
+F|A função embutida que combina simultaneamente vários iteráveis agrupando-os em tuplas correspondentes é a ___.
+F|O paradigma de programação que trata funções como cidadãos de primeira classe, permitindo passá-las como argumentos, é a programação ___.
+F|Métodos especiais cercados por dois sublinhados, como o __add__, são frequentemente chamados de métodos ___.
+F|A palavra reservada do Python que suspende temporariamente a execução de uma função geradora, enviando um valor de volta ao chamador, é ___.

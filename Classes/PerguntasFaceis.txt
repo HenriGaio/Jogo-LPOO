@@ -1,0 +1,15 @@
+M|Qual é a função utilizada para imprimir texto no console?  a) output()  b) print()  c) echo()  d) display()  e) write()
+M|Qual é a extensão padrão de arquivos Python?  a) .pt  b) .pyt  c) .py  d) .pyn  e) .exe
+M|Qual o tipo de dado da variável x = 5.0?  a) int  b) str  c) float  d) bool  e) list
+M|Qual operador é usado para calcular a potência de um número?  a) ^  b) ** c) exp()  d) pow  e) &&
+M|Como se inicia um comentário de uma única linha em Python?  a) //  b) /* c) #  d) --  e) %%
+C|A linguagem Python precisa ser compilada antes de ser executada.  a) Certo  b) Errado
+C|Listas em Python são declaradas usando colchetes [].  a) Certo  b) Errado
+C|A função type() retorna o tipo de dado de uma variável.  a) Certo  b) Errado
+C|A indentação em Python não é obrigatória, serve apenas para estética.  a) Certo  b) Errado
+C|O valor booleano do número 0 é False.  a) Certo  b) Errado
+F|Para ler uma entrada digitada pelo usuário no console, usamos a função ___.
+F|A palavra reservada usada para definir uma função em Python é ___.
+F|O operador matemático usado para obter o resto de uma divisão é o ___.
+F|Para descobrir o tamanho de uma lista, usamos a função interna ___.
+F|O tipo de dado utilizado para representar Verdadeiro ou Falso em Python é chamado de ___.

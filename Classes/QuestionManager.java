@@ -16,6 +16,12 @@ public class QuestionManager {
         return pergunta;
     }
     
+    // Método adicionado para resetar o ponteiro ao mudar de nível/arquivo
+    public void reset() {
+        this.ponteiro = 0;
+        if (this.LinhasPergunta != null) this.LinhasPergunta.clear();
+        if (this.LinhasGabarito != null) this.LinhasGabarito.clear();
+    }
     
     public void AtualizarPergunta(String caminhoPergunta, String caminhoGabarito, Personagem inimigo) {
         
@@ -54,7 +60,12 @@ public class QuestionManager {
                     this.pergunta.setEnunciado(linhaPergunta.replace("C|", "").replace("  ", "\n"));
                     this.pergunta.setGabarito(linhaGabarito.replace("  ", "\n"));
                     ponteiro++;
-                } 
+                } else if(linhaPergunta != null && linhaPergunta.charAt(0) == 'F') {
+                 this.pergunta = new PerguntaFillTheBlank();
+                 this.pergunta.setEnunciado(linhaPergunta.replace("F|", "").replace("  ", "\n"));
+                 this.pergunta.setGabarito(linhaGabarito.trim());
+                 ponteiro++;
+             }
 
             } catch (IOException e) {
                 System.out.println("Erro ao acessar o arquivo: " + e.getMessage()); 
