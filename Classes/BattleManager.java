@@ -10,6 +10,14 @@ public class BattleManager {
     public void setEscolha(String Escolha){
         this.Escolha = Escolha.toLowerCase();
     }
+    
+    public void setAtaqueTotal(int ataqueTotal) {
+        this.ataqueTotal = ataqueTotal;
+    }
+
+    public void setDefesaTotal(int defesaTotal) {
+        this.defesaTotal = defesaTotal;
+    }
 
    public void Acao(Personagem Jogador, Personagem Inimigo, Pergunta Pergunta){
     if (ataqueTotal == 0 && defesaTotal == 0){
@@ -60,47 +68,36 @@ public class BattleManager {
                 defesaTotal =  Jogador.getDefesa();
         }
 
-    } else if(this.Escolha.equals("habilidades")){
-        System.out.println("Escolha uma habilidade:");
-        
-        if (Jogador instanceof Estrategista) {
-            System.out.println("- Eliminar (Custo: 2 QI) - Elimina uma alternativa errada (apenas para perguntas de múltipla escolha)");
-        } if (Jogador instanceof Combatente) {
-            System.out.println("- Crítico (Custo: 3 QI) - Aumenta o dano do próximo ataque em 50%");
-        } else if (Jogador instanceof Tank) {
-            System.out.println("- Fortalecer (Custo: 3 QI) - Aumenta a defesa em 50% para a próxima rodada");
-        }
-        
-        System.out.print("Opção: ");
-        Resposta = Leitor.nextLine().toLowerCase().trim();
-        
-        // Loop de validação para forçar o usuário a digitar o nome da habilidade corretamente
-        while (true) {
-            if (Jogador instanceof Estrategista && Resposta.equals("eliminar")) break;
-            if (Jogador instanceof Combatente && (Resposta.equals("critico") || Resposta.equals("crítico"))) break;
-            if (Jogador instanceof Tank && Resposta.equals("fortalecer")) break;
-            
-            System.out.print("Habilidade inválida! Digite o nome da habilidade mostrada acima: ");
-            Resposta = Leitor.nextLine().toLowerCase().trim();
-        }
-        
-        // Processamento das habilidades
-        if(Resposta.toLowerCase().equals("eliminar") && Jogador.getQI() >= 2 && Pergunta instanceof PerguntaMultiplaEscolha && Jogador instanceof Estrategista){
-            Jogador.getHabilidades().Eliminar((PerguntaMultiplaEscolha) Pergunta);
-            Jogador.setQI(Jogador.getQI() - 2);
-        }
-        else if (Resposta.toLowerCase().equals("critico") && Jogador.getQI() >= 3 && Jogador instanceof Combatente){
-            ataqueTotal = (int) Jogador.getHabilidades().Critico(Jogador);
-            Jogador.setQI(Jogador.getQI() - 3);
-        }
-        else if (Resposta.toLowerCase().equals("fortalecer") && Jogador.getQI() >= 3 && Jogador instanceof Tank){
-            defesaTotal = (int) Jogador.getHabilidades().Fortalecer(Jogador);
-            Jogador.setQI(Jogador.getQI() - 3);
-        }
-    }
+    } else if(this.Escolha.equals("habilidades")) 
+    	{
+    
+    		// 1. Verifica se o jogador possui uma habilidade (se ele implementa a interface)
+    		if (Jogador instanceof HabilidadeEspecial) {
+        		HabilidadeEspecial hab = (HabilidadeEspecial) Jogador;
+        		
+        		System.out.println("Escolha uma habilidade:");
+        		System.out.println(hab.getDescricaoHabilidade());
+        		System.out.print("Opção: ");
+        		
+        		Resposta = Leitor.nextLine().toLowerCase().trim();
+        		
+        		
+        		while (!Resposta.equals(hab.getNomeHabilidade())) {
+            		System.out.print("Habilidade inválida! Digite o nome da habilidade mostrada acima: ");
+            		Resposta = Leitor.nextLine().toLowerCase().trim();
+        		}
+        		
+        		
+        		if (Jogador.getQI() >= hab.getCustoQI()) {
+            		hab.executarHabilidade(this, Pergunta);
+        		} else {
+            		System.out.println("QI insuficiente!");
+        		}
+    		}
+		}
     
    
-    if(!this.Escolha.equals("defender") && Jogador.getQI() < 10){
+    if(this.Escolha.equals("responder") && Jogador.getQI() < 10){
         
         if(Jogador instanceof Estrategista){
             Jogador.setQI(Jogador.getQI() + 2);
