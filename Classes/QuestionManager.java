@@ -12,9 +12,7 @@ public class QuestionManager {
     private List<Integer> LinhasGabarito;
     private long linhas;
     
-    public Pergunta getPergunta() {
-        return pergunta;
-    }
+    public Pergunta getPergunta() { return pergunta; }
     
     // Método adicionado para resetar o ponteiro ao mudar de nível/arquivo
     public void reset() {
@@ -23,25 +21,25 @@ public class QuestionManager {
         if (this.LinhasGabarito != null) this.LinhasGabarito.clear();
     }
     
+    // Método de manipulação dos TXTs para ir lendo as perguntas linha a linha
     public void AtualizarPergunta(String caminhoPergunta, String caminhoGabarito, Personagem inimigo) {
         
-        if (ponteiro == 0) {
+        if (ponteiro == 0) 
+        {
             
             try{
-              LinhasPergunta = new java.util.ArrayList<>();
-              LinhasGabarito = new java.util.ArrayList<>();
-              this.linhas = Files.lines(Paths.get(caminhoPergunta)).count();
-              
-              
-              for (int i = 0; i < linhas; i++) 
-                  LinhasPergunta.add(i);
-              
-              Collections.shuffle(LinhasPergunta);
-              this.LinhasGabarito = LinhasPergunta;
+              	LinhasPergunta = new java.util.ArrayList<>();
+              	LinhasGabarito = new java.util.ArrayList<>();
+              	this.linhas = Files.lines(Paths.get(caminhoPergunta)).count();
+              	
+              	
+              	for (int i = 0; i < linhas; i++) 
+                  	LinhasPergunta.add(i);
+              	
+              	Collections.shuffle(LinhasPergunta);
+              	this.LinhasGabarito = LinhasPergunta;
             
-            }catch (IOException e) {
-            System.out.println("Erro ao acessar o arquivo: " + e.getMessage());
-            }  
+            }catch (IOException e) 	{System.out.println("Erro ao acessar o arquivo: " + e.getMessage());}  
          }
          
             try(Stream<String> streamPergunta = Files.lines(Paths.get(caminhoPergunta));
@@ -67,10 +65,7 @@ public class QuestionManager {
                  ponteiro++;
              }
 
-            } catch (IOException e) {
-                System.out.println("Erro ao acessar o arquivo: " + e.getMessage()); 
-                
-            } 
+            } catch (IOException e) { System.out.println("Erro ao acessar o arquivo: " + e.getMessage()); } 
         
         if (ponteiro == linhas-1 || !inimigo.estaVivo()){
             ponteiro = 0;

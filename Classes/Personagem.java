@@ -17,14 +17,10 @@ public abstract class Personagem {
         this.Nome = Nome;
     }
 
-    // Registra uma habilidade na lista do personagem
-    protected void adicionarHabilidade(HabilidadeEspecial hab) {
-        this.habilidades.add(hab);
-    }
+    // Registra uma habilidade na lista do personagem, habilidades estas que serão registradas nas classes dos tipos de personagem
+    protected void adicionarHabilidade(HabilidadeEspecial hab) { this.habilidades.add(hab); }
 
-    public List<HabilidadeEspecial> getHabilidades() {
-        return this.habilidades;
-    }
+    public List<HabilidadeEspecial> getHabilidades() { return this.habilidades; }
 
     public int getVida()         { return this.Vida; }
     public void setVida(int v)   { this.Vida = v; }

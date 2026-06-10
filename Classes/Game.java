@@ -26,25 +26,16 @@ public class Game
         
         int escolha = Integer.parseInt(inputEscolha);
 
-        Personagem player;
-        if (escolha == 1) 
-        {
-            player = new Combatente();
-        } 
-        else if (escolha == 2)
-        {
-            player = new Estrategista();
-        }
-        else 
-        {   
-            player = new Tank();
-        }
+        Personagem player; // Objeto que será o nosso jogador
+        if (escolha == 1)         { player = new Combatente(); } 
+        else if (escolha == 2)    { player = new Estrategista(); }
+        else					  { player = new Tank(); }
        	
        	// Listas com os nomes dos arquivos separados por dificuldade
         String[] arquivosPerguntas = {"PerguntasFaceis.txt", "PerguntasMedias.txt", "PerguntasDificeis.txt"};
         String[] arquivosGabaritos = {"GabaritoFaceis.txt", "GabaritoMedias.txt", "GabaritoDificeis.txt"};
        	
-       	// Loop de Fases (Níveis)
+       	// Loop de Fases (Níveis) Cada fase utilizará um arquivo txt, tendo uma progressão de dificuldade a medida que avança
        	for (int nivel = 0; nivel < 3; nivel++) {
        	
        		// Escalonamento do inimigo: Mais vida e menos dano a cada nível
@@ -61,18 +52,17 @@ public class Game
         	System.out.println("Nome do adversário: " + inimigo.getNome());
         	System.out.println("=========================================");
        		
-       		// Reseta o gerenciador de perguntas para ler o novo arquivo do nível atual
+       		// Reseta o gerenciador de perguntas (ponteiro) para ler o novo arquivo quando ocorrer a mudança de fase
        		
        		QuestionManager.reset();
        		
-       		int numeroDaRodada = 1;
+       		int numeroDaRodada = 1; // Esse contador é referente ao numero da rodada de cada fase
        		
-       		// Loop de Batalha
+       		// Loop de Batalha (rodadas)
        		while (player.estaVivo() && inimigo.estaVivo()) 
        		{
-       			if (!opcao.toLowerCase().equals("habilidades")) {	
-       				QuestionManager.AtualizarPergunta(arquivosPerguntas[nivel], arquivosGabaritos[nivel], inimigo);
-				}
+       			if (!opcao.toLowerCase().equals("habilidades")) // Se a escolha for DIFERENTE de "habilidades" 	
+       			{ QuestionManager.AtualizarPergunta(arquivosPerguntas[nivel], arquivosGabaritos[nivel], inimigo); } // Para quando o jogador escolher "responder" ou "defender" o sistema mudar a pergunta
 	   			
 				System.out.println("\n--- Rodada " + numeroDaRodada + " ---");
        			System.out.println(player.getNome() + " HP: " + player.getVida() + " QI: " + player.getQI() + " | " + inimigo.getNome() + " HP: " + inimigo.getVida());
@@ -94,28 +84,17 @@ public class Game
         		System.out.println("");
         		
         		rodada.setEscolha(opcao); 
-       			rodada.Acao(player, inimigo, QuestionManager.getPergunta());
+       			rodada.Acao(player, inimigo, QuestionManager.getPergunta()); //rodada é nosso BattleManager
        			
        			numeroDaRodada++;
        		
        		}
        		// Verificação de fim de nível ou fim de jogo
-			if (!player.estaVivo()) 
-			{
-				System.out.println("\nVocê foi derrotado! Fim de jogo.");
-				break; // Sai do loop de níveis, pois o jogador morreu
-			} 
-			else if (!inimigo.estaVivo()) 
-			{
+			if (!player.estaVivo())	{ System.out.println("\nVocê foi derrotado! Fim de jogo."); break; } // Sai do loop de níveis, pois o jogador morreu 
+			else if (!inimigo.estaVivo()) {	
 				System.out.println("\nParabéns! Você derrotou o " + inimigo.getNome() + "!");
-            	if (nivel < 2) 
-            	{
-            		System.out.println("Prepare-se para o próximo nível...");
-				}
-				else 
-				{
-        			System.out.println("Você concluiu todos os desafios! VOCÊ VENCEU O JOGO!");
-        		}
+            	if (nivel < 2)  { System.out.println("Prepare-se para o próximo nível..."); }
+				else 			{ System.out.println("Você concluiu todos os desafios! VOCÊ VENCEU O JOGO!");}
 			}
 		}
        	scanner.close();

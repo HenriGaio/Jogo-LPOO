@@ -1,8 +1,18 @@
 public class Estrategista extends Personagem {
-
+	private static final int HP = 200;
+	private static final int DANO = 10;
+	private static final int DEFESA = 5;
+	private static final int QI_INICIAL = 0;
+	private static final String NOME = "Estrategista";
+	
     public Estrategista() {
-        super(200, 10, 5, 0, "Estrategista");
-
+        super(HP, DANO, DEFESA, QI_INICIAL, NOME);
+		
+		/*Veja que aqui o parâmetro da função adicionarHabilidade é todo o bloco de código "new HabilidadeEspecial() {...}" 
+		  ou seja, recebe como argumento um objeto que será adicionado na lista de habilidades do personagem. 
+		  Lembrando que aqui ainda é dentro do construtor do personagem*/
+	
+		
         // Habilidade 1: Eliminar
         adicionarHabilidade(new HabilidadeEspecial() {
             @Override public String getNomeHabilidade() { return "eliminar"; }
