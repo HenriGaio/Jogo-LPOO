@@ -1,0 +1,92 @@
+Mecânicas Principais
+
+    Progressão de Níveis: O jogo possui 3 níveis de dificuldade (Fácil, Médio e Difícil). Ao derrotar um inimigo, o jogador avança de nível, enfrentando um adversário com mais Vida (HP), porém com perguntas mais complexas.
+
+    Sistema de QI (Mana): Responder perguntas e passar turnos gera pontos de "QI". Esses pontos são utilizados para conjurar habilidades especiais de cada classe.
+
+    Três Tipos de Perguntas:
+
+        M - Múltipla Escolha (a, b, c, d, e)
+
+        C - Certo ou Errado
+
+        F - Preencher a Lacuna (Fill the Blank)
+
+Arquitetura do Código (Classes)
+
+1. Game (Classe Principal)
+
+Contém o método main. É responsável por orquestrar o fluxo geral do jogo.
+
+    Instancia o jogador com base na escolha da classe.
+
+    Controla o Loop de Fases (Níveis), alterando os arquivos de texto lidos (Fácil -> Médio -> Difícil) e escalonando os status do inimigo ("Bug Crônico").
+
+    Controla o Loop de Batalha, exibindo o menu de ações (Responder, Defender, Habilidades) e passando a escolha para o BattleManager.
+
+2. BattleManager
+
+É o "juiz" da rodada. Gerencia o que acontece após o jogador escolher uma ação.
+
+    Ação - Responder: Lê a resposta do usuário e valida com o gabarito da pergunta atual. Se for Fill the Blank, compara a palavra inteira. Se for as demais, compara a primeira letra. Aplica dano ao inimigo em caso de acerto ou pune o jogador em caso de erro.
+
+    Ação - Defender: Reduz o dano recebido no turno inimigo.
+
+    Ação - Habilidades: Verifica se o jogador tem "QI" suficiente e invoca o poder específico da classe escolhida.
+
+    Gerencia a regeneração de "QI" no final de cada rodada.
+
+3. QuestionManager
+
+Responsável por ler os arquivos .txt de perguntas e gabaritos dinamicamente.
+
+    Conta quantas linhas o arquivo tem e cria uma lista embaralhada para que as perguntas não apareçam sempre na mesma ordem.
+
+    Utiliza a classe Files e Stream (Java NIO) para acessar linhas específicas do texto sem precisar carregar o arquivo inteiro na memória.
+
+    Verifica o caractere inicial da linha (M|, C| ou F|) para instanciar a subclasse correta de Pergunta e aplicar a formatação adequada do texto (quebras de linha).
+
+4. Hierarquia de Personagem
+
+A classe abstrata Personagem define os atributos base: Nome, Vida, Dano, Defesa e QI. Dela, derivam:
+
+    Combatente: Alto dano. Habilidade: Crítico (Custa 3 QI, aumenta o dano do próximo ataque em 50%).
+
+    Estrategista: Ganha o dobro de QI por rodada. Habilidade: Eliminar (Custa 2 QI, remove uma alternativa incorreta de perguntas de múltipla escolha).
+
+    Tank: Alta vida e defesa. Habilidade: Fortalecer (Custa 3 QI, aumenta a defesa em 50% na próxima rodada).
+
+    Inimigos: Representa os adversários gerados pelo sistema.
+
+5. Hierarquia de Pergunta
+
+A classe abstrata Pergunta armazena o Enunciado e o Gabarito. Dela, derivam classes vazias que servem para tipagem e polimorfismo no momento de validar habilidades e respostas:
+
+    PerguntaMultiplaEscolha
+
+    PerguntaCertoOuErrado
+
+    PerguntaFillTheBlank
+
+6. Habilidade
+
+Centraliza a lógica das habilidades especiais que o jogador pode usar durante o combate. Modifica status temporários (como dano e defesa) ou interage diretamente com o objeto Pergunta (como no caso da habilidade de cortar alternativas).
+
+
+Estrutura dos Arquivos de Texto
+
+O jogo exige 6 arquivos .txt no diretório raiz para funcionar. O QuestionManager lê esses arquivos pareando a linha da pergunta com a linha correspondente no gabarito.
+
+    PerguntasFaceis.txt / GabaritoFaceis.txt
+
+    PerguntasMedias.txt / GabaritoMedias.txt
+
+    PerguntasDificeis.txt / GabaritoDificeis.txt
+
+Padrão de formatação das perguntas:
+
+    M| -> Para múltipla escolha. Dois espaços em branco indicam quebra de linha.
+
+    C| -> Para Certo/Errado. Dois espaços em branco indicam quebra de linha.
+
+    F| -> Para preencher a lacuna. Lida o texto de forma mais direta.
