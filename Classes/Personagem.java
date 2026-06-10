@@ -1,10 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Personagem {
     private String Nome;
     private int Vida;
     private int Dano;
     private int Defesa;
     private int QI;
-    private Habilidade Habilidades = new Habilidade();
+    private List<HabilidadeEspecial> habilidades = new ArrayList<>();
 
     public Personagem(int Vida, int Dano, int Defesa, int QI, String Nome){
         this.Vida = Vida;
@@ -13,36 +16,22 @@ public abstract class Personagem {
         this.QI = QI;
         this.Nome = Nome;
     }
-    
-    
-    public int getVida(){
-        return this.Vida;
 
-    }
-    public void setVida(int Vida){
-        this.Vida = Vida;
-    }
-    public void setQI(int QI){
-        this.QI = QI;
+    // Registra uma habilidade na lista do personagem
+    protected void adicionarHabilidade(HabilidadeEspecial hab) {
+        this.habilidades.add(hab);
     }
 
-    public int getDano(){
-        return this.Dano;
+    public List<HabilidadeEspecial> getHabilidades() {
+        return this.habilidades;
     }
-    public int getQI(){
-        return this.QI;
-    }
-    public Habilidade getHabilidades(){
-        return this.Habilidades;
-    }
-    public int getDefesa(){
-        return this.Defesa;
-    }
-    public String getNome(){
-        return this.Nome;
-    }
-    
-    public boolean estaVivo() {
-        return this.Vida > 0;
-    }
+
+    public int getVida()         { return this.Vida; }
+    public void setVida(int v)   { this.Vida = v; }
+    public int getDano()         { return this.Dano; }
+    public int getDefesa()       { return this.Defesa; }
+    public int getQI()           { return this.QI; }
+    public void setQI(int QI)    { this.QI = QI; }
+    public String getNome()      { return this.Nome; }
+    public boolean estaVivo()    { return this.Vida > 0; }
 }
